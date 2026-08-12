@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "dunayimex-static",
+      "name": "santos-agri-static",
       "runtimeExecutable": "sh",
-      "runtimeArgs": ["-c", "python3 -m http.server \"$PORT\" --directory \"/Users/s3midiadigital/.gemini/antigravity/scratch/dunayimex-clone\""],
+      "runtimeArgs": ["-c", "python3 -m http.server \"$PORT\" --directory \"/Users/s3midiadigital/.gemini/antigravity/scratch/Santos Agri \""],
       "autoPort": true
     }
   ]
