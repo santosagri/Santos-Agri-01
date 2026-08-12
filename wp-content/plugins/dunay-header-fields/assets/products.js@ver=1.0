@@ -1,0 +1,52 @@
+(function($){
+  // FILTERS
+  $(document).on('click', '.filters-list .filter-button', function(){
+    var $btns = $('.filters-list .filter-button');
+    $btns.removeClass('filter-button--active');
+    $(this).addClass('filter-button--active');
+
+    var filter = $(this).data('filter');
+    var $items = $('#dhs-products-list .product-item');
+    if (filter === 'all') {
+      $items.show();
+    } else {
+      $items.each(function(){
+        var cats = ($(this).data('cats') || '').toString().split(',');
+        $(this).toggle(cats.indexOf(filter) !== -1);
+      });
+    }
+  });
+
+  // PRODUCT POPUP
+  function openModal(id){
+    var $m = $('#'+id+'.dhs-product-modal');
+    if (!$m.length) return;
+    $m.removeAttr('hidden');
+    $('body').addClass('dhs-modal-open');
+    $('<div class="dhs-modal-backdrop" />').appendTo('body');
+  }
+  function closeModal(){
+    $('.dhs-product-modal').attr('hidden', true);
+    $('body').removeClass('dhs-modal-open');
+    $('.dhs-modal-backdrop').remove();
+  }
+  $(document).on('click', '[data-open]', function(e){
+    e.preventDefault();
+    openModal($(this).data('open'));
+  });
+  $(document).on('click', '[data-close], .dhs-modal-backdrop', function(e){
+    e.preventDefault();
+    closeModal();
+  });
+  $(document).on('keyup', function(e){ if (e.key === 'Escape') closeModal(); });
+
+  // FORM POPUP (если нужно показывать твою форму)
+  $(document).on('click', '#form-button, .products__load-more', function(e){
+    e.preventDefault();
+    $('#dhs-form-bg, #dhs-form-wrapper').removeAttr('hidden');
+  });
+  $(document).on('click', '#close-form, #dhs-form-bg', function(e){
+    e.preventDefault();
+    $('#dhs-form-bg, #dhs-form-wrapper').attr('hidden', true);
+  });
+})(jQuery);
