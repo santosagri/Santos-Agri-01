@@ -1164,3 +1164,164 @@
     right: 8px;
   }
 }
+
+/* ===== Blog listing page ===== */
+.sagri-blog-hero {
+  width: min(820px, 88vw);
+  margin: 34px auto 0;
+  text-align: center;
+}
+
+.sagri-blog-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sagri-green);
+  margin: 0 0 14px;
+}
+
+.sagri-blog-hero__eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sagri-green);
+}
+
+.sagri-blog-hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 4.4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--sagri-forest);
+}
+
+.sagri-blog-hero p {
+  margin: 0 auto;
+  max-width: 560px;
+  font-size: 16px;
+  color: var(--sagri-muted);
+  line-height: 1.6;
+}
+
+.sagri-blog-grid {
+  width: min(1080px, 92vw);
+  margin: 44px auto 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.sagri-blog-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0,45,36,.1);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.sagri-blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,45,36,.16);
+}
+
+.sagri-blog-card__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(135deg, #002d25, #005440 62%, #003c30);
+}
+
+.sagri-blog-card__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.sagri-blog-card:hover .sagri-blog-card__image-wrap img {
+  transform: scale(1.05);
+}
+
+.sagri-blog-card__date {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  background: rgba(253, 253, 251, 0.92);
+  backdrop-filter: blur(6px);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--sagri-forest);
+}
+
+.sagri-blog-card__body {
+  padding: 20px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sagri-blog-card__tag {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sagri-green);
+}
+
+.sagri-blog-card__title {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1.3;
+  color: var(--sagri-ink);
+}
+
+.sagri-blog-card__excerpt {
+  margin: 0 0 18px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--sagri-muted);
+  flex: 1;
+}
+
+.sagri-blog-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 750;
+  color: var(--sagri-forest);
+}
+
+.sagri-blog-card__cta svg {
+  width: 14px;
+  height: 14px;
+  transition: transform .25s ease;
+}
+
+.sagri-blog-card:hover .sagri-blog-card__cta svg {
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 900px) {
+  .sagri-blog-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 620px) {
+  .sagri-blog-grid { grid-template-columns: 1fr; }
+}
