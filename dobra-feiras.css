@@ -150,6 +150,13 @@
   stroke-width: 1.5;
 }
 
+.sagri-events__global-icon {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
 .sagri-events__global span {
   display: flex;
   flex-direction: column;
