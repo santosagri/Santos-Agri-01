@@ -1256,6 +1256,8 @@
   position: absolute;
   top: 14px;
   left: 14px;
+  right: 14px;
+  max-width: calc(100% - 28px);
   padding: 6px 12px;
   border-radius: 100px;
   background: rgba(253, 253, 251, 0.92);
@@ -1264,6 +1266,10 @@
   font-weight: 800;
   letter-spacing: .02em;
   color: var(--sagri-forest);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: fit-content;
 }
 
 .sagri-blog-card__body {
