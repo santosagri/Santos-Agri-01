@@ -1081,7 +1081,7 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
               <article class="sagri-event sagri-event--featured">
                 <div class="sagri-event__slider" data-sagri-slider data-sagri-href="feira-bahia-farm-show.html">
                   <div class="sagri-event__track" data-sagri-track>
-                    <video class="sagri-event__slide" src="wp-content/uploads/2025/10/bahia-farm-show.mp4" poster="assets/bahia-farm-show.webp" autoplay muted loop playsinline></video>
+                    <video class="sagri-event__slide" data-lazy-video data-src="wp-content/uploads/2025/10/bahia-farm-show.mp4" poster="assets/bahia-farm-show.webp" preload="none" muted loop playsinline></video>
                     <img class="sagri-event__slide" src="assets/bahia-farm-show-2025-capa.jpg" alt="Equipe comercial da Santos Agri no estande da Bahia Farm Show 2025" loading="lazy">
                     <img class="sagri-event__slide" src="assets/bfs-2024-visitas-ao-stand.jpg" alt="Visitas ao estande da Santos Agri na Bahia Farm Show" loading="lazy">
                   </div>
@@ -1109,7 +1109,7 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
               <article class="sagri-event sagri-event--secondary">
                 <div class="sagri-event__slider" data-sagri-slider data-sagri-href="feira-siavs.html">
                   <div class="sagri-event__track" data-sagri-track>
-                    <video class="sagri-event__slide" src="wp-content/uploads/2025/10/Site - Siavs .mp4" poster="assets/siavs.webp" autoplay muted loop playsinline></video>
+                    <video class="sagri-event__slide" data-lazy-video data-src="wp-content/uploads/2025/10/Site - Siavs .mp4" poster="assets/siavs.webp" preload="none" muted loop playsinline></video>
                     <img class="sagri-event__slide" src="assets/siavs-2025-visitante.jpg" alt="Atendimento a visitante estrangeiro no estande da Santos Agri na SIAVS 2025" loading="lazy">
                     <img class="sagri-event__slide" src="assets/siavs-2025-parceria.jpg" alt="Conversa com parceiros da cadeia de proteína animal na SIAVS 2025" loading="lazy">
                   </div>
@@ -2336,6 +2336,37 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
     goTo(0);
     startAutoplay();
   });
+})();
+</script>
+<script>
+(function () {
+  var lazyVideos = Array.prototype.slice.call(document.querySelectorAll('video[data-lazy-video]'));
+  if (!lazyVideos.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    lazyVideos.forEach(function (v) {
+      v.src = v.getAttribute('data-src');
+      v.play().catch(function () {});
+    });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var v = entry.target;
+      var src = v.getAttribute('data-src');
+      if (src) {
+        v.src = src;
+        v.removeAttribute('data-src');
+        v.load();
+      }
+      v.play().catch(function () {});
+      io.unobserve(v);
+    });
+  }, { rootMargin: '200px 0px' });
+
+  lazyVideos.forEach(function (v) { io.observe(v); });
 })();
 </script>
 <script>
