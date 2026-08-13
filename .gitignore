@@ -23,9 +23,6 @@ vendor/
 .env.local
 .env.*.local
 
-# Build artifacts
-dist/
-build/
 
 # WordPress
 wp-config.php
