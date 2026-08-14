@@ -204,6 +204,14 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 }
 </style>
   <link rel="stylesheet" href="dobra-feiras.css?v=3">
+  <style id="sa-form-inline-css">
+.sa-field-error{position:relative}
+.sa-field-error .input,.sa-field-error .textarea{border-color:#fcb116 !important}
+.sa-field-tip{display:flex;align-items:center;gap:.6em;margin:-1em 2em 1.2em;padding:.7em 1.1em;background:#fcb116;color:#412f20;border-radius:1.4em;font-size:.9em;line-height:1.3;animation:sa-tip-in .18s ease}
+.sa-field-tip__icon{flex:none;width:1.3em;height:1.3em;border-radius:50%;background:#412f20;color:#fcb116;display:flex;align-items:center;justify-content:center;font-size:.85em;font-weight:700}
+@keyframes sa-tip-in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.g-recaptcha{display:inline-block;border-radius:1.4em;overflow:hidden;margin:0 2em 1.2em}
+  </style>
   </head>
   <body class="home blog wp-theme-dunay body hfeed">
 	    <div class="header-bg"></div>
@@ -798,7 +806,7 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 					
 <div class="wpcf7" id="dhs-form-inner-wrapper">
 <div class="wpcf7-response-output" id="dhs-contact-form-status" aria-live="polite" aria-hidden="true"></div>
-<form id="dhs-contact-form" class="wpcf7-form init" aria-label="Formulário de solicitação">
+<form id="dhs-contact-form" class="wpcf7-form init" aria-label="Formulário de solicitação" novalidate>
 <div class="form">
 	<input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input" aria-required="true" placeholder="Your name" value="" type="text" name="name" data-i18n-placeholder="form-name" required />
 <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email input" aria-required="true" placeholder="E-mail" value="" type="email" name="email" data-i18n-placeholder="form-email" required />
@@ -821,8 +829,39 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 	var statusEl = document.getElementById('dhs-contact-form-status');
 	var submitBtn = form.querySelector('button[type="submit"]');
 
+	function clearFieldErrors() {
+		form.querySelectorAll('.sa-field-tip').forEach(function (el) { el.remove(); });
+		form.querySelectorAll('.sa-field-error').forEach(function (el) { el.classList.remove('sa-field-error'); });
+	}
+
+	function showFieldError(field, message) {
+		field.classList.add('sa-field-error');
+		var tip = document.createElement('div');
+		tip.className = 'sa-field-tip';
+		tip.innerHTML = '<span class="sa-field-tip__icon">!</span><span>' + message + '</span>';
+		field.insertAdjacentElement('afterend', tip);
+	}
+
+	function validateFields() {
+		clearFieldErrors();
+		var firstInvalid = null;
+		var required = form.querySelectorAll('[required]');
+		required.forEach(function (field) {
+			var valid = field.checkValidity();
+			if (!valid) {
+				var message = field.validity.typeMismatch ? 'Digite um e-mail válido.' : 'Preencha este campo.';
+				showFieldError(field, message);
+				if (!firstInvalid) firstInvalid = field;
+			}
+		});
+		if (firstInvalid) firstInvalid.focus();
+		return !firstInvalid;
+	}
+
 	form.addEventListener('submit', function (e) {
 		e.preventDefault();
+
+		if (!validateFields()) return;
 
 		if (window.grecaptcha && grecaptcha.getResponse().length === 0) {
 			statusEl.removeAttribute('aria-hidden');
@@ -830,6 +869,9 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 			statusEl.className = 'wpcf7-response-output wpcf7-validation-errors';
 			return;
 		}
+
+		clearFieldErrors();
+		statusEl.setAttribute('aria-hidden', 'true');
 
 		var formData = new FormData(form);
 		var originalText = submitBtn.innerHTML;
@@ -1316,7 +1358,7 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 
 <div class="wpcf7" id="contact-form-wrapper">
 <div class="wpcf7-response-output" id="contact-form-status" aria-live="polite" aria-hidden="true"></div>
-<form id="contact-form" class="wpcf7-form init" aria-label="Formulário de contato">
+<form id="contact-form" class="wpcf7-form init" aria-label="Formulário de contato" novalidate>
 <div class="form">
 	<input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input" aria-required="true" placeholder="Your name" value="" type="text" name="name" data-i18n-placeholder="form-name" required />
 <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email input" aria-required="true" placeholder="E-mail" value="" type="email" name="email" data-i18n-placeholder="form-email" required />
@@ -1340,8 +1382,40 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 	var statusEl = document.getElementById('contact-form-status');
 	var submitBtn = form.querySelector('button[type="submit"]');
 
+	function clearFieldErrors() {
+		form.querySelectorAll('.sa-field-tip').forEach(function (el) { el.remove(); });
+		form.querySelectorAll('.sa-field-error').forEach(function (el) { el.classList.remove('sa-field-error'); });
+	}
+
+	function showFieldError(field, message) {
+		var wrapper = field.closest('.sa-field-error') ? field : field;
+		field.classList.add('sa-field-error');
+		var tip = document.createElement('div');
+		tip.className = 'sa-field-tip';
+		tip.innerHTML = '<span class="sa-field-tip__icon">!</span><span>' + message + '</span>';
+		field.insertAdjacentElement('afterend', tip);
+	}
+
+	function validateFields() {
+		clearFieldErrors();
+		var firstInvalid = null;
+		var required = form.querySelectorAll('[required]');
+		required.forEach(function (field) {
+			var valid = field.checkValidity();
+			if (!valid) {
+				var message = field.validity.typeMismatch ? 'Digite um e-mail válido.' : 'Preencha este campo.';
+				showFieldError(field, message);
+				if (!firstInvalid) firstInvalid = field;
+			}
+		});
+		if (firstInvalid) firstInvalid.focus();
+		return !firstInvalid;
+	}
+
 	form.addEventListener('submit', function (e) {
 		e.preventDefault();
+
+		if (!validateFields()) return;
 
 		if (window.grecaptcha && grecaptcha.getResponse().length === 0) {
 			statusEl.removeAttribute('aria-hidden');
@@ -1349,6 +1423,9 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 			statusEl.className = 'wpcf7-response-output wpcf7-validation-errors';
 			return;
 		}
+
+		clearFieldErrors();
+		statusEl.setAttribute('aria-hidden', 'true');
 
 		var formData = new FormData(form);
 		var originalText = submitBtn.innerHTML;
