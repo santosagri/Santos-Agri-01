@@ -98,10 +98,10 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 .button__icon svg path{fill:#333333!important;}
 .hero__slider{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1s ease;pointer-events:none;z-index:0;}
 .hero__slider.hero__slider--visible{opacity:1;}
-.hero__slider-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;}
+.hero__slider-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;background-size:cover;background-position:center;background-repeat:no-repeat;}
 .hero__slider-slide--active{opacity:1;}
 #hero-video{transition:opacity 1s ease;}
-#hero-video.hero-video--hidden{opacity:0;}
+.hero__slider-slide.hero-video--hidden{opacity:0 !important;}
 .hero__shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.25) 45%, rgba(0,0,0,.6) 100%);}
 .hero .container{position:relative;z-index:2;}
 .mission .list-title__icon path{fill:#3d946e!important;}
@@ -346,10 +346,10 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
     <main>
       <section class="hero" id="hero">
         <div class="hero__slider hero__slider--visible" id="hero-slider">
-          <video class="hero__slider-slide hero__slider-slide--active" src="wp-content/uploads/2025/10/hero-clip-1.mp4" preload="auto" autoplay muted playsinline></video>
-          <video class="hero__slider-slide" data-src="wp-content/uploads/2025/10/hero-clip-2.mp4" preload="none" muted playsinline></video>
-          <video class="hero__slider-slide" data-src="wp-content/uploads/2025/10/hero-clip-3.mp4" preload="none" muted playsinline></video>
-          <video class="hero__slider-slide" data-src="wp-content/uploads/2025/10/hero-clip-4.mp4" preload="none" muted playsinline></video>
+          <video class="hero__slider-slide hero__slider-slide--active" poster="wp-content/uploads/2025/10/hero-poster-1.webp" preload="none" muted playsinline width="1280" height="720" data-mp4="wp-content/uploads/2025/10/hero-clip-1.mp4" data-webm="wp-content/uploads/2025/10/hero-clip-1.webm" style="background-image:url('wp-content/uploads/2025/10/hero-poster-1.jpg');"></video>
+          <video class="hero__slider-slide" poster="wp-content/uploads/2025/10/hero-poster-2.webp" preload="none" muted playsinline width="1280" height="720" data-mp4="wp-content/uploads/2025/10/hero-clip-2.mp4" data-webm="wp-content/uploads/2025/10/hero-clip-2.webm" style="background-image:url('wp-content/uploads/2025/10/hero-poster-2.jpg');"></video>
+          <video class="hero__slider-slide" poster="wp-content/uploads/2025/10/hero-poster-3.webp" preload="none" muted playsinline width="1280" height="720" data-mp4="wp-content/uploads/2025/10/hero-clip-3.mp4" data-webm="wp-content/uploads/2025/10/hero-clip-3.webm" style="background-image:url('wp-content/uploads/2025/10/hero-poster-3.jpg');"></video>
+          <video class="hero__slider-slide" poster="wp-content/uploads/2025/10/hero-poster-4.webp" preload="none" muted playsinline width="1280" height="720" data-mp4="wp-content/uploads/2025/10/hero-clip-4.mp4" data-webm="wp-content/uploads/2025/10/hero-clip-4.webm" style="background-image:url('wp-content/uploads/2025/10/hero-poster-4.jpg');"></video>
         </div>
         <div class="hero__shade"></div>
         <div class="container">
@@ -796,21 +796,78 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 					</div>
 
 					
-<div class="wpcf7 no-js" id="wpcf7-f84-o1" lang="uk" dir="ltr" data-wpcf7-id="84">
-<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-<form action="index.html#wpcf7-f84-o1" method="post" class="wpcf7-form init" aria-label="Контактна форма" novalidate="novalidate" data-status="init">
-<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="84" /><input type="hidden" name="_wpcf7_version" value="6.1.6" /><input type="hidden" name="_wpcf7_locale" value="uk" /><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f84-o1" /><input type="hidden" name="_wpcf7_container_post" value="0" /><input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-</fieldset>
+<div class="wpcf7" id="dhs-form-inner-wrapper">
+<div class="wpcf7-response-output" id="dhs-contact-form-status" aria-live="polite" aria-hidden="true"></div>
+<form id="dhs-contact-form" class="wpcf7-form init" aria-label="Formulário de solicitação">
 <div class="form">
-	<input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input" aria-required="true" aria-invalid="false" placeholder="Your name" value="" type="text" name="your-name" data-i18n-placeholder="form-name" />
-<input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email input" aria-required="true" aria-invalid="false" placeholder="E-mail" value="" type="email" name="your-email" data-i18n-placeholder="form-email" />
-<textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea textarea" aria-invalid="false" placeholder="Message" name="your-message" data-i18n-placeholder="form-message"></textarea>
+	<input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input" aria-required="true" placeholder="Your name" value="" type="text" name="name" data-i18n-placeholder="form-name" required />
+<input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email input" aria-required="true" placeholder="E-mail" value="" type="email" name="email" data-i18n-placeholder="form-email" required />
+<textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea textarea" placeholder="Message" name="message" data-i18n-placeholder="form-message" required></textarea>
+	<input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+	<input type="hidden" name="access_key" value="1f72ff07-9194-4ac5-a485-519af5331fde" />
+	<input type="hidden" name="subject" value="Nova solicitação de orçamento - Santos Agri" />
+	<input type="hidden" name="from_name" value="Santos Agri - Site (Solicitação)" />
+	<div class="g-recaptcha" data-sitekey="6LdL1YUtAAAAAAXJu9vUNqP904cZlOPgWQXsFGCu" data-size="compact" data-theme="dark"></div>
 	<button type="submit" class="button button--white button--small">
-<span class="bold" data-i18n="form-submit">Submit
+<span class="bold" data-i18n="form-submit">Submit</span>
 </button>
-</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</div>
 </form>
 </div>
+<script>
+(function () {
+	var form = document.getElementById('dhs-contact-form');
+	if (!form) return;
+	var statusEl = document.getElementById('dhs-contact-form-status');
+	var submitBtn = form.querySelector('button[type="submit"]');
+
+	form.addEventListener('submit', function (e) {
+		e.preventDefault();
+
+		if (window.grecaptcha && grecaptcha.getResponse().length === 0) {
+			statusEl.removeAttribute('aria-hidden');
+			statusEl.textContent = 'Por favor, confirme que você não é um robô.';
+			statusEl.className = 'wpcf7-response-output wpcf7-validation-errors';
+			return;
+		}
+
+		var formData = new FormData(form);
+		var originalText = submitBtn.innerHTML;
+
+		submitBtn.disabled = true;
+		submitBtn.innerHTML = '<span class="bold">Enviando...</span>';
+		statusEl.removeAttribute('aria-hidden');
+		statusEl.textContent = '';
+		statusEl.className = 'wpcf7-response-output';
+
+		fetch('https://api.web3forms.com/submit', {
+			method: 'POST',
+			headers: { 'Accept': 'application/json' },
+			body: formData
+		})
+			.then(function (response) { return response.json(); })
+			.then(function (data) {
+				if (data.success) {
+					statusEl.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+					statusEl.classList.add('wpcf7-mail-sent-ok');
+					form.reset();
+					if (window.grecaptcha) grecaptcha.reset();
+				} else {
+					statusEl.textContent = 'Erro ao enviar. Tente novamente ou fale pelo WhatsApp.';
+					statusEl.classList.add('wpcf7-validation-errors');
+				}
+			})
+			.catch(function () {
+				statusEl.textContent = 'Erro ao enviar. Tente novamente ou fale pelo WhatsApp.';
+				statusEl.classList.add('wpcf7-validation-errors');
+			})
+			.finally(function () {
+				submitBtn.disabled = false;
+				submitBtn.innerHTML = originalText;
+			});
+	});
+})();
+</script>
 				</div>
 				</div>
 			</div>
@@ -1257,21 +1314,79 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 						</div>
 
 
-<div class="wpcf7 no-js" id="wpcf7-f83-o2" lang="uk" dir="ltr" data-wpcf7-id="83">
-<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-<form action="index.html#wpcf7-f83-o2" method="post" class="wpcf7-form init" aria-label="Контактна форма" novalidate="novalidate" data-status="init">
-<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="83" /><input type="hidden" name="_wpcf7_version" value="6.1.6" /><input type="hidden" name="_wpcf7_locale" value="uk" /><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f83-o2" /><input type="hidden" name="_wpcf7_container_post" value="0" /><input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-</fieldset>
+<div class="wpcf7" id="contact-form-wrapper">
+<div class="wpcf7-response-output" id="contact-form-status" aria-live="polite" aria-hidden="true"></div>
+<form id="contact-form" class="wpcf7-form init" aria-label="Formulário de contato">
 <div class="form">
-	<input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input" aria-required="true" aria-invalid="false" placeholder="Your name" value="" type="text" name="your-name" data-i18n-placeholder="form-name" />
-<input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email input" aria-required="true" aria-invalid="false" placeholder="E-mail" value="" type="email" name="your-email" data-i18n-placeholder="form-email" />
-<textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea textarea" aria-invalid="false" placeholder="Message" name="your-message" data-i18n-placeholder="form-message"></textarea>
+	<input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input" aria-required="true" placeholder="Your name" value="" type="text" name="name" data-i18n-placeholder="form-name" required />
+<input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email input" aria-required="true" placeholder="E-mail" value="" type="email" name="email" data-i18n-placeholder="form-email" required />
+<textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea textarea" placeholder="Message" name="message" data-i18n-placeholder="form-message" required></textarea>
+	<input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+	<input type="hidden" name="access_key" value="1f72ff07-9194-4ac5-a485-519af5331fde" />
+	<input type="hidden" name="subject" value="Novo contato pelo site Santos Agri" />
+	<input type="hidden" name="from_name" value="Santos Agri - Site" />
+	<div class="g-recaptcha" data-sitekey="6LdL1YUtAAAAAAXJu9vUNqP904cZlOPgWQXsFGCu" data-size="compact" data-theme="dark"></div>
 	<button type="submit" class="button button--white button--small">
-<span class="bold" data-i18n="form-submit">Submit
+<span class="bold" data-i18n="form-submit">Submit</span>
 </button>
-</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</div>
 </form>
 </div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+(function () {
+	var form = document.getElementById('contact-form');
+	if (!form) return;
+	var statusEl = document.getElementById('contact-form-status');
+	var submitBtn = form.querySelector('button[type="submit"]');
+
+	form.addEventListener('submit', function (e) {
+		e.preventDefault();
+
+		if (window.grecaptcha && grecaptcha.getResponse().length === 0) {
+			statusEl.removeAttribute('aria-hidden');
+			statusEl.textContent = 'Por favor, confirme que você não é um robô.';
+			statusEl.className = 'wpcf7-response-output wpcf7-validation-errors';
+			return;
+		}
+
+		var formData = new FormData(form);
+		var originalText = submitBtn.innerHTML;
+
+		submitBtn.disabled = true;
+		submitBtn.innerHTML = '<span class="bold">Enviando...</span>';
+		statusEl.removeAttribute('aria-hidden');
+		statusEl.textContent = '';
+		statusEl.className = 'wpcf7-response-output';
+
+		fetch('https://api.web3forms.com/submit', {
+			method: 'POST',
+			headers: { 'Accept': 'application/json' },
+			body: formData
+		})
+			.then(function (response) { return response.json(); })
+			.then(function (data) {
+				if (data.success) {
+					statusEl.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+					statusEl.classList.add('wpcf7-mail-sent-ok');
+					form.reset();
+					if (window.grecaptcha) grecaptcha.reset();
+				} else {
+					statusEl.textContent = 'Erro ao enviar. Tente novamente ou fale pelo WhatsApp.';
+					statusEl.classList.add('wpcf7-validation-errors');
+				}
+			})
+			.catch(function () {
+				statusEl.textContent = 'Erro ao enviar. Tente novamente ou fale pelo WhatsApp.';
+				statusEl.classList.add('wpcf7-validation-errors');
+			})
+			.finally(function () {
+				submitBtn.disabled = false;
+				submitBtn.innerHTML = originalText;
+			});
+	});
+})();
+</script>
 					</div>
 				</div>
 			</div>
@@ -1850,27 +1965,8 @@ html[lang="pt-BR"] .hero__content{width:min(90%,44vw);}
 wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 //# sourceURL=wp-i18n-js-after
 </script>
-<script id="swv-js" src="wp-content/plugins/contact-form-7/includes/swv/js/index.js@ver=6.1.6"></script>
-<script id="contact-form-7-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "contact-form-7", {"translation-revision-date":"2025-12-27 13:54:22+0000","generator":"GlotPress\/4.0.3","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);","lang":"uk_UA"},"This contact form is placed in the wrong place.":["\u0426\u044f \u043a\u043e\u043d\u0442\u0430\u043a\u0442\u043d\u0430 \u0444\u043e\u0440\u043c\u0430 \u0440\u043e\u0437\u043c\u0456\u0449\u0435\u043d\u0430 \u0432 \u043d\u0435\u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e\u043c\u0443 \u043c\u0456\u0441\u0446\u0456."],"Error:":["\u041f\u043e\u043c\u0438\u043b\u043a\u0430:"]}},"comment":{"reference":"includes\/js\/index.js"}} );
-//# sourceURL=contact-form-7-js-translations
-</script>
-<script id="contact-form-7-js-before">
-var wpcf7 = {
-    "api": {
-        "root": "https:\/\/dunayimex.com.ua\/index.php?rest_route=\/",
-        "namespace": "contact-form-7\/v1"
-    }
-};
-//# sourceURL=contact-form-7-js-before
-</script>
 <script id="jquery-core-js" src="wp-includes/js/jquery/jquery.min.js@ver=3.7.1"></script>
 <script id="jquery-migrate-js" src="wp-includes/js/jquery/jquery-migrate.min.js@ver=3.4.1"></script>
-<script id="contact-form-7-js" src="wp-content/plugins/contact-form-7/includes/js/index.js@ver=6.1.6"></script>
 <script id="dhs-products-js" src="wp-content/plugins/dunay-header-fields/assets/products.js@ver=1.0"></script>
 <script id="dunay-navigation-js" src="wp-content/themes/dunay/js/navigation.js@ver=1.0.0"></script>
 <script type="module" src="wp-content/themes/dunay/dist/app-DbwS0LLH.js" id="vite-app-js"></script>
@@ -2381,20 +2477,42 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 </script>
 <script>
 (function () {
-  document.addEventListener('DOMContentLoaded', function () {
+  function init() {
     var heroSlider = document.getElementById('hero-slider');
     if (!heroSlider) return;
 
     var slides = Array.prototype.slice.call(heroSlider.querySelectorAll('.hero__slider-slide'));
     if (!slides.length) return;
     var current = 0;
+    var started = false;
 
+    // attach <source> elements (webm first, mp4 fallback) instead of a bare
+    // src, so each format is only downloaded by browsers that support it;
+    // the poster stays visible until a source is ready to play
     function loadSlide(i) {
       var slide = slides[i];
-      if (slide && slide.tagName === 'VIDEO' && !slide.src && slide.dataset.src) {
-        slide.src = slide.dataset.src;
-        slide.load();
+      if (!slide || slide.tagName !== 'VIDEO' || slide.dataset.loaded) return;
+      slide.dataset.loaded = '1';
+      if (slide.dataset.webm) {
+        var sourceWebm = document.createElement('source');
+        sourceWebm.src = slide.dataset.webm;
+        sourceWebm.type = 'video/webm';
+        slide.appendChild(sourceWebm);
       }
+      if (slide.dataset.mp4) {
+        var sourceMp4 = document.createElement('source');
+        sourceMp4.src = slide.dataset.mp4;
+        sourceMp4.type = 'video/mp4';
+        slide.appendChild(sourceMp4);
+      }
+      slide.removeAttribute('data-webm');
+      slide.removeAttribute('data-mp4');
+      slide.load();
+      // if the video can't load (bad network, unsupported format), the
+      // poster/background-image already in place stays visible as a fallback
+      slide.addEventListener('error', function () {
+        slide.classList.add('hero-video--hidden');
+      });
     }
 
     function showSlide(index) {
@@ -2427,8 +2545,34 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
       }
     });
 
-    showSlide(current);
-  });
+    // don't compete with critical rendering: wait until the page is fully
+    // loaded, then use idle time to start fetching the hero video
+    function start() {
+      if (started) return;
+      started = true;
+      showSlide(current);
+    }
+
+    function scheduleStart() {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(start, { timeout: 2000 });
+      } else {
+        setTimeout(start, 200);
+      }
+    }
+
+    if (document.readyState === 'complete') {
+      scheduleStart();
+    } else {
+      window.addEventListener('load', scheduleStart);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 </script>
   </body>

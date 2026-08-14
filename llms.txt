@@ -1,0 +1,16 @@
+# Santos Agri
+
+> Santos Agri é uma empresa brasileira sediada em Luís Eduardo Magalhães (BA), especializada na comercialização e intermediação de grãos e sementes. Há mais de 15 anos conecta o agronegócio brasileiro aos mercados de todo o mundo.
+
+## Páginas principais
+
+- [Início](https://santosagri.com.br/): Apresentação da empresa, atuação, diferenciais e contato.
+- [Blog](https://santosagri.com.br/blog.html): Notícias, feiras e novidades do agronegócio.
+- [Bahia Farm Show 2026](https://santosagri.com.br/feira-bahia-farm-show.html): Cobertura da participação da Santos Agri na feira.
+- [SIAVS 2026](https://santosagri.com.br/feira-siavs.html): Cobertura da participação da Santos Agri na feira.
+- [SIAVS 2024](https://santosagri.com.br/feira-siavs-2024.html): Cobertura da participação da Santos Agri na feira.
+
+## Institucional
+
+- [Política de Privacidade](https://santosagri.com.br/privacidade.html)
+- [Termos de Uso](https://santosagri.com.br/termos-de-uso.html)
